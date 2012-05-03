@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @office.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @office.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @office.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @office.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @office.zip %>
+</p>
+
+<p>
+  <b>References:</b>
+  <%= @office.references %>
+</p>
+
+<p>
+  <b>Geo:</b>
+  <%= @office.geo %>
+</p>
+
+
+<%= link_to 'Edit', edit_office_path(@office) %> |
+<%= link_to 'Back', offices_path %>

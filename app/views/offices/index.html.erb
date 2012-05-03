@@ -1,0 +1,35 @@
+<h1>Listing offices</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>References</th>
+    <th>Geo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @offices.each do |office| %>
+  <tr>
+    <td><%= office.name %></td>
+    <td><%= office.address %></td>
+    <td><%= office.city %></td>
+    <td><%= office.state %></td>
+    <td><%= office.zip %></td>
+    <td><%= office.references %></td>
+    <td><%= office.geo %></td>
+    <td><%= link_to 'Show', office %></td>
+    <td><%= link_to 'Edit', edit_office_path(office) %></td>
+    <td><%= link_to 'Destroy', office, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Office', new_office_path %>
