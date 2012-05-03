@@ -1,4 +1,6 @@
 ClickYCome::Application.routes.draw do
+  resources :menu_dishes
+
   resources :menus
 
   resources :dishes
