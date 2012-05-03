@@ -1,4 +1,6 @@
 ClickYCome::Application.routes.draw do
+  resources :orders
+
   resources :offices
 
   resources :users
