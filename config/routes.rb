@@ -1,4 +1,6 @@
 ClickYCome::Application.routes.draw do
+  resources :menus
+
   resources :dishes
 
   # The priority is based upon order of creation:
