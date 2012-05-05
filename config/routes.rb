@@ -1,4 +1,6 @@
 ClickYCome::Application.routes.draw do
+  get "pages/home"
+
   resources :types
 
   resources :orders
