@@ -1,8 +1,8 @@
 class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
-      t.number :user_id
-      t.number :menu_id
+      t.integer :user_id
+      t.integer :menu_id
 
       t.timestamps
     end

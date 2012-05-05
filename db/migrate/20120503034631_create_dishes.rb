@@ -4,7 +4,7 @@ class CreateDishes < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :image
-      t.number :type
+      t.integer :type
 
       t.timestamps
     end

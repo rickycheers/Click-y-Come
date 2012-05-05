@@ -5,7 +5,7 @@ class CreateOffices < ActiveRecord::Migration
       t.string :address
       t.string :city
       t.string :state
-      t.number :zip
+      t.integer :zip
       t.string :references
       t.string :geo
 
