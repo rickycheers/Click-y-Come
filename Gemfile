@@ -39,3 +39,6 @@ gem 'jquery-rails'
 
 # Facebook graph
 gem 'fb_graph'
+
+# Twitter bootstrap pipeline
+gem 'twitter-bootstrap-rails'
