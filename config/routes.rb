@@ -1,5 +1,4 @@
 ClickYCome::Application.routes.draw do
-  get "pages/home"
 
   resources :types
 
@@ -14,7 +13,11 @@ ClickYCome::Application.routes.draw do
   resources :menus
 
   resources :dishes
-
+  
+  root :to => 'pages#index'
+  
+  match '/facebook', :to => 'facebook#index'
+  match '/facebook/callback', :to => 'facebook#callback'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

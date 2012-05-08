@@ -42,3 +42,5 @@ gem 'fb_graph'
 
 # Twitter bootstrap pipeline
 gem 'twitter-bootstrap-rails'
+
+gem 'therubyracer'

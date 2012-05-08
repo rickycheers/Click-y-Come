@@ -1,12 +1,33 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
-  <title>ClickYCome</title>
+  <title>Click Y Come</title>
+  <meta property="fb:app_id" content="126196304181338">
+  <!--[if IE]>
+  <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '126196304181338',
+            status     : true, 
+            cookie     : true,
+            xfbml      : true,
+            oauth      : true,
+          });
+        };
+        (function(d){
+           var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+           js = d.createElement('script'); js.id = id; js.async = true;
+           js.src = "//connect.facebook.net/en_US/all.js";
+           d.getElementsByTagName('head')[0].appendChild(js);
+         }(document));
+      </script>
 
 <%= yield %>
 
