@@ -20,17 +20,17 @@ class FacebookController < ApplicationController
     client.authorization_code = params[:code]
     
     access_token = client.access_token! :client_auth_body # => Rack::OAuth2::AccessToken
-    fb_user      = FbGraph::User.me(access_token).fetch # => FbGraph::User
+    fb_user      = @debug = FbGraph::User.me(access_token).fetch # => FbGraph::User
     fb_user      = fb_user.raw_attributes
     fb_id        = fb_user[:id]
     first_name   = fb_user[:first_name]
-    last_name    = fb_user[:last_name]
+    middle_name  = fb_user[:last_name]
     email        = fb_user[:email]
     
     user = User.authenticate fb_id
     
     if user.nil?
-      new_user = User.new :fb_id => fb_id, :fb_access_token => access_token.to_s, :first_name => first_name, :last_name => last_name, :email => email
+      new_user = User.new :fb_id => fb_id, :fb_access_token => access_token.to_s, :first_name => first_name, :middle_name => middle_name, :personal_email => email
       new_user.save
       sign_in new_user
     else

@@ -48,7 +48,7 @@ class OfficesController < ApplicationController
         # Associating office to user
         user = current_user
         user.office_id = @office.id
-        user.phone = params[:user][:phone] if params[:user]
+        user.cel_phone = params[:user][:cel_phone] if params[:user]
         user.save
         
         format.html { redirect_to @office, notice: 'Office was successfully created.' }

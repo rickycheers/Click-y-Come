@@ -3,18 +3,18 @@
 
 <p>
   <b>Bienvenido:</b>
-  <%= @user.first_name + ' ' + @user.last_name %>
+  <%= @user.first_name + ' ' + @user.middle_name %>
 </p>
 
 <p>
   <b>Email:</b>
-  <%= @user.email %>
+  <%= @user.personal_email %>
 </p>
 
 <% if !@office %>
 <p>
   <b>Phone:</b>
-  <%= @user.phone %>
+  <%= @user.cel_phone %>
 </p>
 <% end %>
 

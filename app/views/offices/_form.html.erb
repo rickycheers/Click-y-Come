@@ -10,11 +10,11 @@
       </ul>
     </div>
   <% end %>
-  <% if current_user.phone.nil? %>
+  <% if current_user.cel_phone.nil? %>
   <%= fields_for current_user do |uf| %>
   <div class="field">
-	Teléfono<br />
-	<%= uf.text_field :phone %>
+	Teléfono móvil:<br />
+	<%= uf.text_field :cel_phone %>
   </div>
   <% end %>
   <% end %>
