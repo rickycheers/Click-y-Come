@@ -1,26 +1,9 @@
-<%= 
-debug signed_in? 
-%>
+<% if signed_in? %>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Fb:</b>
-  <%= @user.fb_id %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>First name:</b>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @user.last_name %>
+  <b>Bienvenido:</b>
+  <%= @user.first_name + ' ' + @user.last_name %>
 </p>
 
 <p>
@@ -28,16 +11,18 @@ debug signed_in?
   <%= @user.email %>
 </p>
 
+<% if !@office %>
 <p>
   <b>Phone:</b>
   <%= @user.phone %>
 </p>
+<% end %>
 
-<p>
-  <b>Office:</b>
-  <%= @user.office_id %>
-</p>
-
+<% if @office %>
+  <p>Nos hacen falta los siguientes datos para poder completar tu registro<br>Por favor llénalos a continuación:</p>
+  <%= render 'offices/form' %>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<% end %>

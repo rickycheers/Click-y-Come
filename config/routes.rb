@@ -18,6 +18,8 @@ ClickYCome::Application.routes.draw do
   
   match '/facebook', :to => 'facebook#index'
   match '/facebook/callback', :to => 'facebook#callback'
+  match '/facebook/signin', :to => 'facebook#new'
+  match '/facebook/signout', :to => 'facebook#destroy'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

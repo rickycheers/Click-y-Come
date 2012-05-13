@@ -39,4 +39,9 @@ class FacebookController < ApplicationController
     redirect_to @current_user
   end
   
+  def destroy
+    sign_out
+    redirect_to root_path
+  end
+  
 end

@@ -11,6 +11,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<header>
+		<% if signed_in? %>
+		<%= link_to 'Sign out', facebook_signout_path, :method => :delete %>
+		<% end %>
+	</header>
 	<script>
         window.fbAsyncInit = function() {
           FB.init({
@@ -30,6 +35,7 @@
       </script>
 
 <%= yield %>
+<%= debug @debug %>
 
 </body>
 </html>

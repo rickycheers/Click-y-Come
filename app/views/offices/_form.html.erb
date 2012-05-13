@@ -10,36 +10,43 @@
       </ul>
     </div>
   <% end %>
+  <% if current_user.phone.nil? %>
+  <%= fields_for current_user do |uf| %>
+  <div class="field">
+	Teléfono<br />
+	<%= uf.text_field :phone %>
+  </div>
+  <% end %>
+  <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    Nombre de la Empresa:<br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :address %><br />
+    Dirección:<br />
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :city %><br />
+    Ciudad:<br />
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :state %><br />
+    Estado:<br />
     <%= f.text_field :state %>
   </div>
   <div class="field">
-    <%= f.label :zip %><br />
+    Código Postal:<br />
     <%= f.text_field :zip %>
   </div>
   <div class="field">
-    <%= f.label :references %><br />
-    <%= f.text_field :references %>
+    Referencias para llegar a la oficina:<br />
+    <%= f.text_area :references %>
   </div>
   <div class="field">
-    <%= f.label :geo %><br />
-    <%= f.text_field :geo %>
+    <%= f.hidden_field :geo %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <input type="submit" name="commit" value="Enviar registro" >
   </div>
 <% end %>

@@ -44,6 +44,13 @@ class OfficesController < ApplicationController
 
     respond_to do |format|
       if @office.save
+        
+        # Associating office to user
+        user = current_user
+        user.office_id = @office.id
+        user.phone = params[:user][:phone] if params[:user]
+        user.save
+        
         format.html { redirect_to @office, notice: 'Office was successfully created.' }
         format.json { render json: @office, status: :created, location: @office }
       else
