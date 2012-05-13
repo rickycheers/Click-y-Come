@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120511024810) do
+ActiveRecord::Schema.define(:version => 20120508034020) do
 
   create_table "dishes", :force => true do |t|
     t.string   "name"
@@ -64,18 +64,22 @@ ActiveRecord::Schema.define(:version => 20120511024810) do
 
   create_table "users", :force => true do |t|
     t.integer  "fb_id"
-    t.string   "name"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.integer  "phone"
-    t.string   "office_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
     t.string   "fb_access_token"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "personal_email"
+    t.string   "job_email"
+    t.integer  "cel_phone"
+    t.string   "office_id"
+    t.boolean  "send_to_personal"
+    t.boolean  "send_to_job"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["fb_id"], :name => "index_users_on_fb_id", :unique => true
+  add_index "users", ["job_email"], :name => "index_users_on_job_email", :unique => true
+  add_index "users", ["personal_email"], :name => "index_users_on_personal_email", :unique => true
 
 end
