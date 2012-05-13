@@ -41,6 +41,7 @@ gem 'jquery-rails'
 gem 'fb_graph'
 
 # Twitter bootstrap pipeline
-gem 'twitter-bootstrap-rails'
+#gem 'twitter-bootstrap-rails'
+#gem 'therubyracer'
 
-gem 'therubyracer'
+gem "zurb-foundation"
