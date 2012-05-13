@@ -18,14 +18,25 @@ class FacebookController < ApplicationController
     client = fb_auth.client
     client.redirect_uri = "http://localhost:3000/facebook/callback"
     client.authorization_code = params[:code]
+    
     access_token = client.access_token! :client_auth_body # => Rack::OAuth2::AccessToken
-    user = FbGraph::User.me(access_token).fetch # => FbGraph::User
-    fb_id = user.raw_attributes['id']
-    first_name = user.raw_attributes['first_name']
-    last_name = user.raw_attributes['last_name']
-    email = user.raw_attributes['email']
-    #User.new() if !User.authenticate fb_id
-    #redirect_to root_url
+    fb_user      = FbGraph::User.me(access_token).fetch # => FbGraph::User
+    fb_user      = fb_user.raw_attributes
+    fb_id        = fb_user[:id]
+    first_name   = fb_user[:first_name]
+    last_name    = fb_user[:last_name]
+    email        = fb_user[:email]
+    
+    user = User.authenticate fb_id
+    
+    if user.nil?
+      new_user = User.new :fb_id => fb_id, :fb_access_token => access_token.to_s, :first_name => first_name, :last_name => last_name, :email => email
+      new_user.save
+      sign_in new_user
+    else
+      sign_in user
+    end
+    redirect_to @current_user
   end
   
 end
