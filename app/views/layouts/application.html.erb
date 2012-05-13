@@ -13,7 +13,7 @@
 <body>
 	<header>
 		<% if signed_in? %>
-		<%= link_to 'Sign out', facebook_signout_path, :method => :delete %>
+		<%= link_to 'Sign out', signout_path, :method => :delete %>
 		<% end %>
 	</header>
 	<script>

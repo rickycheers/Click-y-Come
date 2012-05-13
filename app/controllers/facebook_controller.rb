@@ -1,6 +1,6 @@
 class FacebookController < ApplicationController
   
-  def index
+  def new
     # setup client
     fb_auth = FbGraph::Auth.new(126196304181338, 'a5bed406cbdd4e9ea8b1099f8d935d30')
     client = fb_auth.client
@@ -36,7 +36,7 @@ class FacebookController < ApplicationController
     else
       sign_in user
     end
-    redirect_to @current_user
+    redirect_to orders_path
   end
   
   def destroy
