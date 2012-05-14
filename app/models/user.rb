@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   
   belongs_to :office
   
+  has_many :orders
+  has_many :menus, :through => :orders
+  
   def self.authenticate(fb_id)
     self.find_by_fb_id fb_id;
   end
