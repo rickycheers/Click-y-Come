@@ -36,7 +36,7 @@ class FacebookController < ApplicationController
     else
       sign_in user
     end
-    redirect_to orders_path
+    redirect_to menus_path
   end
   
   def destroy

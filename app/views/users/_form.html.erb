@@ -16,28 +16,23 @@
     <%= f.text_field :fb_id %>
   </div>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.label :middle_name %><br />
+    <%= f.text_field :middle_name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.label :personal_email %><br />
+    <%= f.text_field :personal_email %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
+    <%= f.label :cel_phone %><br />
+    <%= f.text_field :cel_phone %>
   </div>
   <div class="field">
-    <%= f.label :office_id %><br />
-    <%= f.text_field :office_id %>
+    <%= f.hidden_field :office_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

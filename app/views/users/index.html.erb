@@ -3,9 +3,8 @@
 <table>
   <tr>
     <th>Fb</th>
-    <th>Name</th>
     <th>First name</th>
-    <th>Last name</th>
+    <th>Middle name</th>
     <th>Email</th>
     <th>Phone</th>
     <th>Office</th>
@@ -17,11 +16,10 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.fb_id %></td>
-    <td><%= user.name %></td>
     <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
-    <td><%= user.email %></td>
-    <td><%= user.phone %></td>
+    <td><%= user.middle_name %></td>
+    <td><%= user.personal_email %></td>
+    <td><%= user.cel_phone %></td>
     <td><%= user.office_id %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>

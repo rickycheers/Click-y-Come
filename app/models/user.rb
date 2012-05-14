@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :fb_id, :fb_access_token, :first_name, :middle_name, :last_name, :personal_email, :job_email, :cel_phone, :office_id, :send_to_personal, :send_to_job
   
+  belongs_to :office
+  
   def self.authenticate(fb_id)
     self.find_by_fb_id fb_id;
   end
