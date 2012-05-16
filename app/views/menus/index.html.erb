@@ -1,27 +1,26 @@
-<h1>Listing menus</h1>
+<h1>Listado de Menús</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @menus.each do |menu| %>
-  <tr>
-    <td><%= menu.name %></td>
-    <td><%= menu.description %></td>
-    <td><%= menu.date %></td>
-    <td><%= link_to 'Show', menu %></td>
-    <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
-    <td><%= link_to 'Destroy', menu, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<% @menus.each do |object| %>
+<ul class="menu">
+	<li class="header">
+		<span><%= object[:menu].name %></span>
+		<span><%= object[:menu].date %></span>
+	</li>
+	<li>
+		<ul class="dishes">
+			<% object[:menu].dishes.each do |dish| %>
+			<li class="dish"><%= dish.name %></li>
+			<% end %>
+		</ul>
+	</li>
+</ul>
+<%
+=begin
+link_to 'Show', menu
+link_to 'Edit', edit_menu_path(menu)
+link_to 'Destroy', menu, confirm: 'Are you sure?', method: :delete
+=end
+%>
 <% end %>
-</table>
-
-<br />
 
 <%= link_to 'New Menu', new_menu_path %>

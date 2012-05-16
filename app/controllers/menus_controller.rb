@@ -2,7 +2,11 @@ class MenusController < ApplicationController
   # GET /menus
   # GET /menus.json
   def index
-    @menus = Menu.all
+    @menus = []
+    Menu.all.each do |menu|
+      m = {:menu => menu, :dishes => menu.dishes}
+      @debug = @menus.push m
+    end
 
     respond_to do |format|
       format.html # index.html.erb
