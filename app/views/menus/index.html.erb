@@ -1,16 +1,22 @@
 <h1>Listado de Menús</h1>
-
+<div class="menu_controls">
+	<span class="menu_control">Ver menús de la semana</span>
+	<span class="menu_control">Ver menú del día</span>
+</div>
+<input type="hidden" id="user_fname" value="<%= current_user.first_name %>" />
+<input type="hidden" id="user_mname" value="<%= current_user.middle_name %>" />
 <% @menus.each do |object| %>
 <ul class="menu">
 	<li class="header">
-		<span><%= object[:menu].name %></span>
-		<span><%= object[:menu].date %></span>
+		<span class="name"><%= object[:menu].name %></span>
+		<span><%= readable_date object[:menu].date %></span>
+		<button id="order_menu_<%= object[:menu].id %>" class="order_menu button" >Ordenar</button>
 	</li>
 	<li>
 		<ul class="dishes">
 			<% object[:menu].dishes.each do |dish| %>
 			<li class="dish"><%= dish.name %></li>
-			<% end %>
+			<% end #each %>
 		</ul>
 	</li>
 </ul>
@@ -21,6 +27,6 @@ link_to 'Edit', edit_menu_path(menu)
 link_to 'Destroy', menu, confirm: 'Are you sure?', method: :delete
 =end
 %>
-<% end %>
+<% end #each %>
 
 <%= link_to 'New Menu', new_menu_path %>

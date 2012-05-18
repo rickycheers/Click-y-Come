@@ -5,7 +5,7 @@ class MenusController < ApplicationController
     @menus = []
     Menu.all.each do |menu|
       m = {:menu => menu, :dishes => menu.dishes}
-      @debug = @menus.push m
+      @menus.push m
     end
 
     respond_to do |format|
