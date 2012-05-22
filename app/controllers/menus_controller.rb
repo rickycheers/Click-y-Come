@@ -1,12 +1,18 @@
 class MenusController < ApplicationController
+  require 'active_support'
   # GET /menus
   # GET /menus.json
   def index
-    @menus = []
-    Menu.all.each do |menu|
+    @week_menus = []
+    monday = Time.new.at_beginning_of_week
+    sunday = Time.new.at_end_of_week
+    Menu.where :date => monday..sunday  do |menu|
       m = {:menu => menu, :dishes => menu.dishes}
       @menus.push m
     end
+    
+    today = Time.now.midnight..(Time.now.tomorrow.midnight - 1.second)
+    @debug = @day_menu = Menu.where(:date => today)[0]
 
     respond_to do |format|
       format.html # index.html.erb

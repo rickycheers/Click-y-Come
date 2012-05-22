@@ -1,0 +1,7 @@
+<% if !@day_menu.nil? %>
+	<%= @day_menu.name %>
+	<%= @day_menu.date %>
+	<% @day_menu.dishes.each do |dish| %>
+	<%= dish.name %>
+	<% end %>
+<% end %>
